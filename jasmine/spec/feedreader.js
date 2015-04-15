@@ -8,12 +8,12 @@
  * since some of these tests may require DOM elements. We want
  * to ensure they don't run until the DOM is ready.
  */
-$(function() {
+$(function () {
     /* This is our first test suite - a test suite just contains
     * a related set of tests. This suite is all about the RSS
     * feeds definitions, the allFeeds variable in our application.
     */
-    describe('RSS Feeds', function() {
+    describe('RSS Feeds', function () {
         /* This is our first test - it tests to make sure that the
          * allFeeds variable has been defined and that it is not
          * empty. Experiment with this before you get started on
@@ -21,58 +21,54 @@ $(function() {
          * allFeeds in app.js to be an empty array and refresh the
          * page?
          */
-        it('are defined', function() {
+        it('are defined', function () {
             expect(allFeeds).toBeDefined();
             expect(allFeeds.length).not.toBe(0);
         });
 
 
-         // This test loops through each feed and ensures that the URL is defined and not empty
-         it( 'ensures that each feed has a url property that is not empty', function(){
+        // This test loops through each feed and ensures that the URL is defined and not empty
+        it('ensures that each feed has a url property that is not empty', function () {
 
             allFeeds.forEach(
-                    function( feed, i , a ) {
-                        expect( feed.url ).toBeDefined();
-                        expect( feed.url ).not.toBeNull();
-                    });
-         });
+                function (feed, i, a) {
+                    expect( feed.url ).toBeDefined();
+                    expect( feed.url ).not.toBeNull();
+                });
+        });
 
         // This test loops through each feed and ensures that the name is defined and not empty
-         it( 'ensures that each feed has a name property that is not empty ', function(){
+        it('ensures that each feed has a name property that is not empty ', function () {
               allFeeds.forEach(
-                        function( feed, i , a ) {
-                            expect( feed.name ).toBeDefined();
-                            expect( feed.name ).not.toBeNull();
-                        });
-         });
-
+                function (feed, i, a) {
+                    expect( feed.name ).toBeDefined();
+                    expect( feed.name ).not.toBeNull();
+                });
+        });
     });
 
 
 
-    describe('The menu', function() {
+    describe('The menu', function () {
 
 
         // test that the menu is hidden by default
-        it( 'ensures that the menu is hidden by default' , function(){
+        it('ensures that the menu is hidden by default' , function () {
             expect( $('body' ).hasClass( "menu-hidden")).toBe(true);
         });
 
 
         // test that clicking the menu toggles its visibility
-          it( 'ensures that the menu hidding is toggled when clicked ' , function(){
-                var menuIcon = $('.menu-icon-link');
-                menuIcon.click();
-                expect( $('body' ).hasClass( "menu-hidden")).toBe(false);
-                menuIcon.click();
-                expect( $('body' ).hasClass( "menu-hidden")).toBe(true);
-          });
-
+        it('ensures that the menu hidding is toggled when clicked ' , function () {
+            var menuIcon = $('.menu-icon-link');
+            menuIcon.click();
+            expect( $('body' ).hasClass( "menu-hidden")).toBe(false);
+            menuIcon.click();
+            expect( $('body' ).hasClass( "menu-hidden")).toBe(true);
+        });
     });
 
-    describe('Initial Entries', function() {
-
-
+    describe('Initial Entries', function () {
         /*
           The next two tests work together to ensuer that when the loadFeed function is called that
           it actually returns some content to the .feed container on the page.
@@ -86,14 +82,14 @@ $(function() {
 
          // before each of the following tests clear out the feed and call the loadFeed function with a different param
          // each time
-        beforeEach( function( done ){
+        beforeEach( function ( done ) {
             $('.feed').empty();
             loadFeed( feedNumber++ % allFeeds.length, done );
         });
 
         // this test checks to make sure thath something is loaded on the page,
         // note it saves off the contents for use in the verification of the next test
-        it( 'ensures that the feed loaded ' , function(  ){
+        it('ensures that the feed loaded ' , function () {
             expect ( $('.feed' ).find( '.entry').length  > 0 ).toBe(true);
             // save this feed for later
             initialFeed = $('.feed' ).html();
@@ -103,12 +99,10 @@ $(function() {
 
         // this test makes sure that when a new feed is loaded that the contents on the page are
         // actually different.
-         it( 'ensures that the feed actually changes ', function(  ) {
+         it('ensures that the feed actually changes ', function () {
             var currentFeed = $('.feed' ).html();
             expect( currentFeed === initialFeed ).toBe( false );
 
          });
-
     });
-
 }());
