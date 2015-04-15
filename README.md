@@ -1,3 +1,12 @@
+ In order to complete this lesson I had to watch the video course on javascript testing. 
+ I also had to go and read all the main docs on jasmine lib. 
+ I had to google and read several articles when it was time to test the async stuff. It was not clear to me what the done() function is all about. I added a call to setTimeout with a 3 second delay before my done() function gets called in the beforeEach method. 
+  I am not sure if that is the correct approach or not. The stuff with runs() and waitsFor() in the earlier jasmine seemed easier to follow, perhaps we can have some discussion on the boards. 
+
+  
+
+
+
 # Project Overview
 
 In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
