@@ -1,9 +1,14 @@
- In order to complete this lesson I had to watch the video course on javascript testing. 
- I also had to go and read all the main docs on jasmine lib. 
- I had to google and read several articles when it was time to test the async stuff. It was not clear to me what the done() function is all about. I added a call to setTimeout with a 3 second delay before my done() function gets called in the beforeEach method. 
-  I am not sure if that is the correct approach or not. The stuff with runs() and waitsFor() in the earlier jasmine seemed easier to follow, perhaps we can have some discussion on the boards. 
+ In order to use this application you have to open the index.html file in a browser.
+ Once the page loads you can click the icon in the upper left hand corner to see the list of available feeds in a menu that is revealed .
+ To get the articles for a feed just click on it.
+ Note: the menu will disappear after a feed is selected.
 
-  
+ In order to complete this lesson I had to watch the video course on javascript testing.
+ I also had to go and read all the main docs on jasmine lib.
+ I had to google and read several articles when it was time to test the async stuff. It was not clear to me what the done() function is all about. I added a call to setTimeout with a 3 second delay before my done() function gets called in the beforeEach method.
+  I am not sure if that is the correct approach or not. The stuff with runs() and waitsFor() in the earlier jasmine seemed easier to follow, perhaps we can have some discussion on the boards.
+
+
 
 
 
