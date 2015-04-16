@@ -76,7 +76,7 @@ $(function () {
         */
 
         // this var stores the html of the first feed that the test loads
-         var initialFeed = null;
+         var initialFeed = -1;
          // this is used to pick out different feeds for the different tests
          var feedNumber = 0;
 
@@ -84,7 +84,18 @@ $(function () {
          // each time
         beforeEach( function ( done ) {
             $('.feed').empty();
-            loadFeed( feedNumber++ % allFeeds.length, done );
+
+            // if we have already loaded a feed, indicated by the initialFeed have a non-default value
+            // then try and find a different feed in the allFeeds array
+            if( initialFeed != -1 ){
+                // use this var to see how far in to the allFeeds we have to go to find a different feed
+                var offset = 0
+                while( allFeeds[feedNumber].url === allFeeds[feedNumber + offset].url )
+                    offset++;
+                feedNumber += offset;
+            }
+            loadFeed( feedNumber, done );
+
         });
 
         // this test checks to make sure thath something is loaded on the page,
@@ -99,10 +110,49 @@ $(function () {
 
         // this test makes sure that when a new feed is loaded that the contents on the page are
         // actually different.
-         it('ensures that the feed actually changes ', function () {
+        it('ensures that the feed actually changes ', function () {
             var currentFeed = $('.feed' ).html();
             expect( currentFeed === initialFeed ).toBe( false );
-
-         });
+        });
     });
+
+
 }());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     /* TODO: Write a new test suite named "New Feed Selection"
+
+        /* TODO: Write a test that ensures when a new feed is loaded
+         * by the loadFeed function that the content actually changes.
+         * Remember, loadFeed() is asynchronous.
+         */
+
+
+
+
+
+
+
+
+
+
+
+
