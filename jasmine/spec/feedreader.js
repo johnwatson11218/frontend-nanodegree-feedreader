@@ -98,7 +98,7 @@ $(function () {
 
         });
 
-        // this test checks to make sure thath something is loaded on the page,
+        // this test checks to make sure that something is loaded on the page,
         // note it saves off the contents for use in the verification of the next test
         it('ensures that the feed loaded ' , function () {
             expect ( $('.feed' ).find( '.entry').length  > 0 ).toBe(true);
