@@ -34,6 +34,7 @@ $(function () {
                 function (feed, i, a) {
                     expect( feed.url ).toBeDefined();
                     expect( feed.url ).not.toBeNull();
+                    expect( feed.url.trim() === '' ).toBe(false );
                 });
         });
 
@@ -43,6 +44,7 @@ $(function () {
                 function (feed, i, a) {
                     expect( feed.name ).toBeDefined();
                     expect( feed.name ).not.toBeNull();
+                    expect( feed.name.trim() === '' ).toBe(false );
                 });
         });
     });
